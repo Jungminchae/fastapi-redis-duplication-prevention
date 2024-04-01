@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi-redis-duplication-prevention"
+version = "0.1.0"
+description = ""
+authors = ["Jungminchae <minchae3618@gmail.com>"]
+readme = "README.md"
+packages = [{include = "fastapi_redis_duplication_prevention"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.0"
+redis = "^5.0.3"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.29"}
+uvicorn = "^0.29.0"
+fastapi-mctools = "^0.3.0"
+pydantic-settings = "^2.2.1"
+pymysql = "^1.1.0"
+aiomysql = "^0.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

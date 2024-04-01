@@ -21,6 +21,5 @@ async def create_vote(data: VoteRequest, redis: GetRedis, db: DB):
             raise HTTPException(status_code=400, detail="중복 발생")
         await vote_orm.create(db, user_id=data.user_id, candidate_id=data.candidate_id)
 
-    await redis.delete(data.token)
     return {"message": "투표 완료"}
         

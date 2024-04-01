@@ -1,4 +1,5 @@
-from pathlib import Path
+import logging
+from logging.config import dictConfig
 from zoneinfo import ZoneInfo
 from pydantic_settings import BaseSettings
 
@@ -61,7 +62,7 @@ class AppSettings(BaseSettings):
             },
         },
         "loggers": {
-            "default": {
+            "requests": {
                 "handlers": ["default"],
                 "level": "INFO",
                 "propagate": False,
@@ -72,3 +73,7 @@ class AppSettings(BaseSettings):
     @property
     def TIMEZONE(self) -> ZoneInfo:
         return ZoneInfo(self.TIMEZONE_LOCATION)
+
+
+settings = AppSettings()
+dictConfig(settings.LOG_CONFIG)

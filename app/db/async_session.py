@@ -1,6 +1,8 @@
+from typing import Annotated
+from fastapi import Depends
 from sqlalchemy import MetaData
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
-from app.config import settings
+from app.config.settings import settings
 
 
 meta = MetaData()
@@ -17,3 +19,6 @@ async def get_db() -> AsyncSession:
         yield db
     finally:
         await db.close()
+
+
+DB = Annotated[AsyncSession, Depends(get_db)]

@@ -10,7 +10,7 @@ class AppSettings(BaseSettings):
     TIMEZONE_LOCATION: str = "Asia/Seoul"
     ALLOWED_HOSTS: list = []
     CORS_ORIGINS: list = []
-    ASYNC_DB_URL: str = "mysql+aiomysql://admin:root!@db:3306/admin"
+    ASYNC_DB_URL: str = "mysql+aiomysql://admin:root@db:3306/admin"
 
     SWAGGER_UI_PARAMS: dict = {
         "deepLinking": True,

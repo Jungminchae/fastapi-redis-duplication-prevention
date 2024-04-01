@@ -1,7 +1,7 @@
 """Create Vote Table
 
 Revision ID: 33b44632669c
-Revises: 
+Revises:
 Create Date: 2024-04-01 17:13:00.255982
 
 """

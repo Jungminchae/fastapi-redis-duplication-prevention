@@ -3,7 +3,8 @@ from app.models.base import Base
 from app.models.votes import Vote
 
 
-class VoteCreate(async_base.ACreateBase): ...
+class VoteCreate(async_base.ACreateBase):
+    ...
 
 
 class VoteORM(VoteCreate):

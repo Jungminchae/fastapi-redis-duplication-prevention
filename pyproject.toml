@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Jungminchae <minchae3618@gmail.com>"]
 readme = "README.md"
-package-mode = false
+packages = [{include = "fastapi_redis_duplication_prevention"}]
 
 
 [tool.poetry.dependencies]

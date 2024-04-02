@@ -9,5 +9,6 @@ class VoteRequest(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def validate_token(cls, values: dict) -> dict:
-        values["token"] = f"{values['user_id']}-voted"
+        values["token"] = f"vote_lock:{values['user_id']}:{values['candidate_id']}"
+
         return values

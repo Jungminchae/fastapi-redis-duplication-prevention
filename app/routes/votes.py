@@ -21,8 +21,8 @@ async def create_vote(data: VoteRequest, redis: GetRedis, db: DB):
             raise HTTPException(status_code=400, detail="중복 발생")
         await vote_orm.create(db, user_id=data.user_id, candidate_id=data.candidate_id)
 
-    redis.delete(data.token)
-    return {"message": "투표 완료"}
+    await redis.delete(data.token)
+    return {"detail": "투표 완료"}
 
 
 @router.post("/distributed-lock/")
@@ -36,4 +36,4 @@ async def create_vote_by_distributed_lock(data: VoteRequest, redis: GetRedis, db
         await vote_orm.create(db, user_id=data.user_id, candidate_id=data.candidate_id)
     finally:
         await release_lock(redis, lock_key)
-    return {"message": "투표 완료"}
+    return {"detail": "투표 완료"}
